@@ -1,2 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mymxhbyf.dongjk.lattecore" />
+    package="com.mymxhbyf.dongjk.lattecore" >
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+</manifest>

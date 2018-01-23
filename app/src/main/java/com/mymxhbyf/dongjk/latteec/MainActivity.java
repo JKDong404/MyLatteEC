@@ -3,16 +3,14 @@ package com.mymxhbyf.dongjk.latteec;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.mymxhbyf.dongjk.lattecore.activities.ProxyActivity;
+import com.mymxhbyf.dongjk.lattecore.delegates.LatteDelegate;
+
+public class MainActivity extends ProxyActivity{
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
-
-
-
+    public LatteDelegate setRootDelegate() {
+        return new AppDelegate();
     }
 }

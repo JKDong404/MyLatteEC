@@ -14,7 +14,7 @@ public class MyApp extends Application{
     public void onCreate() {
         super.onCreate();
         Latte.init(this)
-                .withApiHost("")
+                .withApiHost("http://127.0.0.1/")
                 .configure();
     }
 }

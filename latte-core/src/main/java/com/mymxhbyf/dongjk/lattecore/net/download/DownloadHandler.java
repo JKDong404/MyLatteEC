@@ -1,11 +1,11 @@
-package com.mymxhbyf.dongjk.lattecore.download;
+package com.mymxhbyf.dongjk.lattecore.net.download;
 
 import android.os.AsyncTask;
 
-import com.mymxhbyf.dongjk.lattecore.callback.IError;
-import com.mymxhbyf.dongjk.lattecore.callback.IFailure;
-import com.mymxhbyf.dongjk.lattecore.callback.IRequest;
-import com.mymxhbyf.dongjk.lattecore.callback.ISuccess;
+import com.mymxhbyf.dongjk.lattecore.net.callback.IError;
+import com.mymxhbyf.dongjk.lattecore.net.callback.IFailure;
+import com.mymxhbyf.dongjk.lattecore.net.callback.IRequest;
+import com.mymxhbyf.dongjk.lattecore.net.callback.ISuccess;
 import com.mymxhbyf.dongjk.lattecore.net.RestCreator;
 
 import java.util.WeakHashMap;

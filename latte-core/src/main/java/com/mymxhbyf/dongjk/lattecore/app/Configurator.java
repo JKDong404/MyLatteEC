@@ -1,6 +1,5 @@
 package com.mymxhbyf.dongjk.lattecore.app;
 
-import android.graphics.Bitmap;
 
 import java.util.WeakHashMap;
 
@@ -35,7 +34,7 @@ public class Configurator {
     }
 
 
-    //以下为配置API_HOST
+    //配置API_HOST
     public final Configurator withApiHost(String host){
         LATTE_CONFIGS.put(ConfigType.API_HOST.name(),host);
         return this;
