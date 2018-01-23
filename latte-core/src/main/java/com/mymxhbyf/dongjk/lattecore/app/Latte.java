@@ -11,11 +11,15 @@ import java.util.WeakHashMap;
 public final class Latte {
 
     public static Configurator init(Context context){
-        getconfigurations().put(ConfigType.APPLICATION_CONTEXT.name(),context.getApplicationContext());
+        getConfigurations().put(ConfigType.APPLICATION_CONTEXT.name(),context.getApplicationContext());
         return Configurator.getInstance();
     }
 
-    private static WeakHashMap<String,Object> getconfigurations(){
+    public static WeakHashMap<String,Object> getConfigurations(){
         return Configurator.getInstance().getLatteConfigs();
+    }
+
+    public static Context getApplicationContext(){
+        return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXT.name());
     }
 }
