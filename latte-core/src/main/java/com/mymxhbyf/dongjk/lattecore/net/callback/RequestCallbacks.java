@@ -2,8 +2,8 @@ package com.mymxhbyf.dongjk.lattecore.net.callback;
 
 import android.os.Handler;
 
-import com.mymxhbyf.dongjk.lattecore.ui.LatteLoader;
-import com.mymxhbyf.dongjk.lattecore.ui.LoaderStyle;
+import com.mymxhbyf.dongjk.lattecore.ui.loader.LatteLoader;
+import com.mymxhbyf.dongjk.lattecore.ui.loader.LoaderStyle;
 
 
 import retrofit2.Call;

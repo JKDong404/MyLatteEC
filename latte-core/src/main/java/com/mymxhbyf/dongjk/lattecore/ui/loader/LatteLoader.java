@@ -1,14 +1,13 @@
-package com.mymxhbyf.dongjk.lattecore.ui;
+package com.mymxhbyf.dongjk.lattecore.ui.loader;
 
 import android.content.Context;
-import android.print.PrinterId;
 import android.support.v7.app.AppCompatDialog;
 import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.mymxhbyf.dongjk.lattecore.R;
-import com.mymxhbyf.dongjk.lattecore.util.DimenUtil;
+import com.mymxhbyf.dongjk.lattecore.util.DemenUtil.DimenUtil;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;

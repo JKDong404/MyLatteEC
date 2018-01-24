@@ -6,7 +6,7 @@ import com.mymxhbyf.dongjk.lattecore.net.callback.IError;
 import com.mymxhbyf.dongjk.lattecore.net.callback.IFailure;
 import com.mymxhbyf.dongjk.lattecore.net.callback.IRequest;
 import com.mymxhbyf.dongjk.lattecore.net.callback.ISuccess;
-import com.mymxhbyf.dongjk.lattecore.ui.LoaderStyle;
+import com.mymxhbyf.dongjk.lattecore.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.mymxhbyf.dongjk.lattecore.ui;
+package com.mymxhbyf.dongjk.lattecore.ui.loader;
 
 /**
  * Created by DongJK on 2018/1/19.

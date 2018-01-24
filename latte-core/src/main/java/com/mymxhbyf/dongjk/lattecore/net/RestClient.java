@@ -8,8 +8,8 @@ import com.mymxhbyf.dongjk.lattecore.net.callback.IRequest;
 import com.mymxhbyf.dongjk.lattecore.net.callback.ISuccess;
 import com.mymxhbyf.dongjk.lattecore.net.callback.RequestCallbacks;
 import com.mymxhbyf.dongjk.lattecore.net.download.DownloadHandler;
-import com.mymxhbyf.dongjk.lattecore.ui.LatteLoader;
-import com.mymxhbyf.dongjk.lattecore.ui.LoaderStyle;
+import com.mymxhbyf.dongjk.lattecore.ui.loader.LatteLoader;
+import com.mymxhbyf.dongjk.lattecore.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

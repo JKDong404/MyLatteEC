@@ -1,4 +1,4 @@
-package com.mymxhbyf.dongjk.lattecore.ui;
+package com.mymxhbyf.dongjk.lattecore.ui.loader;
 
 import android.content.Context;
 

@@ -1,7 +1,13 @@
 package com.mymxhbyf.dongjk.lattecore.app;
 
 
+import com.joanzapata.iconify.IconFontDescriptor;
+import com.joanzapata.iconify.Iconify;
+
+import java.util.ArrayList;
 import java.util.WeakHashMap;
+
+import okhttp3.Interceptor;
 
 /**
  * Created by DongJK on 2017/12/28.
@@ -9,10 +15,15 @@ import java.util.WeakHashMap;
 
 public class Configurator {
 
-    private static final WeakHashMap<String,Object> LATTE_CONFIGS = new WeakHashMap<>();
+    private static final WeakHashMap<Object,Object> LATTE_CONFIGS = new WeakHashMap<>();
+    //字体图标相关
+    private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
+    //拦截器相关
+    private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
+
 
     private Configurator(){
-        LATTE_CONFIGS.put(ConfigType.CONFIG_REDAY.name(),false);
+        LATTE_CONFIGS.put(ConfigType.CONFIG_REDAY,false);
     }
 
     //线程安全的懒汉模式
@@ -20,7 +31,7 @@ public class Configurator {
         return Holder.INSTANCE;
     }
 
-    final WeakHashMap<String,Object> getLatteConfigs(){
+    final WeakHashMap<Object,Object> getLatteConfigs(){
         return LATTE_CONFIGS;
     }
 
@@ -30,13 +41,41 @@ public class Configurator {
     }
 
     public final void configure(){//配置完成
-        LATTE_CONFIGS.put(ConfigType.CONFIG_REDAY.name(),true);
+        initIcons();
+        LATTE_CONFIGS.put(ConfigType.CONFIG_REDAY,true);
     }
 
 
     //配置API_HOST
     public final Configurator withApiHost(String host){
-        LATTE_CONFIGS.put(ConfigType.API_HOST.name(),host);
+        LATTE_CONFIGS.put(ConfigType.API_HOST,host);
+        return this;
+    }
+
+    private void initIcons(){
+        if (ICONS.size() > 0){
+            final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));
+            for (int i = 1; i < ICONS.size(); i ++){
+                initializer.with(ICONS.get(i));
+            }
+        }
+    }
+
+    public final Configurator withIcon(IconFontDescriptor descriptor){
+        ICONS.add(descriptor);
+        return this;
+    }
+
+    //拦截器相关
+    public final Configurator withInterceptor(Interceptor interceptor){
+        INTERCEPTORS.add(interceptor);
+        LATTE_CONFIGS.put(ConfigType.INTERCEPTOR,INTERCEPTORS);
+        return this;
+    }
+
+    public final Configurator withInterceptors(ArrayList<Interceptor> interceptors){
+        INTERCEPTORS.addAll(interceptors);
+        LATTE_CONFIGS.put(ConfigType.INTERCEPTOR,INTERCEPTORS);
         return this;
     }
 
@@ -51,9 +90,9 @@ public class Configurator {
     }
 
     @SuppressWarnings("unchecked")
-    final <T> T  getConfiguration(Enum<ConfigType> key){
+    final <T> T  getConfiguration(Object key){
         checkConfiguration();
-        return (T) LATTE_CONFIGS.get(key.name());
+        return (T) LATTE_CONFIGS.get(key);
 
     }
 }
