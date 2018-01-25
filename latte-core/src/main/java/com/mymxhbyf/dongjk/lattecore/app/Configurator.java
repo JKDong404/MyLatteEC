@@ -52,6 +52,11 @@ public class Configurator {
         return this;
     }
 
+    public final Configurator withLoaderDelayed(long delayed){
+        LATTE_CONFIGS.put(ConfigType.LOADER_DELAYED,delayed);
+        return this;
+    }
+
     private void initIcons(){
         if (ICONS.size() > 0){
             final Iconify.IconifyInitializer initializer = Iconify.with(ICONS.get(0));

@@ -10,6 +10,8 @@ import com.mymxhbyf.dongjk.latte.ec.R;
 
 import com.mymxhbyf.dongjk.latte.ec.R2;
 import com.mymxhbyf.dongjk.lattecore.delegates.LatteDelegate;
+import com.mymxhbyf.dongjk.lattecore.ui.launcher.ScrollLauncherTag;
+import com.mymxhbyf.dongjk.lattecore.util.storage.LattePreference;
 import com.mymxhbyf.dongjk.lattecore.util.timer.BaseTimerTask;
 import com.mymxhbyf.dongjk.lattecore.util.timer.ITimerListener;
 
@@ -34,14 +36,30 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener{
     private int mCount = 5;
 
     @OnClick(R2.id.tv_launcher_timer)
-    void onClickTimerView(){
-
+    void onClickTimerView(){//跳过按钮
+        if (mTimer != null) {
+            mTimer.cancel();
+            mTimer = null;
+            checkIsShowScroll();
+        }
     }
 
     private void initTimer(){
         mTimer = new Timer();
         final BaseTimerTask task = new BaseTimerTask(this);
         mTimer.schedule(task,0,1000);
+    }
+
+    //判断是否显示滑动启页
+    private void checkIsShowScroll(){
+        if (!LattePreference.getAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name())){
+            start(new LauncherScrollDelegate(),SINGLETASK);
+        }else {
+            //检查用户是否登陆了app
+
+        }
+
+
     }
 
     @Override
@@ -66,6 +84,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener{
                         if (mTimer != null){
                             mTimer.cancel();
                             mTimer = null;
+                            checkIsShowScroll();
                         }
                     }
                 }

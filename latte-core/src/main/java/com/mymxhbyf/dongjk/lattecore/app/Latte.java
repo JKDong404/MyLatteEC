@@ -18,9 +18,9 @@ public final class Latte {
         return Configurator.getInstance();
     }
 
-//    public static Configurator getConfigurator(){
-//        return Configurator.getInstance();
-//    }
+    public static Configurator getConfigurator(){
+        return Configurator.getInstance();
+    }
 
     public static  <T> T getConfiguration(Object key){
         return Configurator.getInstance().getConfiguration(key);

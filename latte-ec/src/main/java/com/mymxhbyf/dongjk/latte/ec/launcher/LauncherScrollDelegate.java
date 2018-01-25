@@ -10,6 +10,8 @@ import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.mymxhbyf.dongjk.latte.ec.R;
 import com.mymxhbyf.dongjk.lattecore.delegates.LatteDelegate;
 import com.mymxhbyf.dongjk.lattecore.ui.launcher.LauncherHolderCreator;
+import com.mymxhbyf.dongjk.lattecore.ui.launcher.ScrollLauncherTag;
+import com.mymxhbyf.dongjk.lattecore.util.storage.LattePreference;
 
 import java.util.ArrayList;
 
@@ -51,6 +53,11 @@ public class LauncherScrollDelegate extends LatteDelegate implements OnItemClick
 
     @Override
     public void onItemClick(int position) {
+        //如果点击的是最后一个
+        if (position == INTEGERS.size() - 1){
+            LattePreference.setAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name(),true);
+            //检查用户是否已经登录
+        }
 
     }
 }
