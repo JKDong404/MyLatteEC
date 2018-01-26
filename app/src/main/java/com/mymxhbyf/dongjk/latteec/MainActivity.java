@@ -12,6 +12,7 @@ import com.mymxhbyf.dongjk.latte.ec.sign.ISignListener;
 import com.mymxhbyf.dongjk.latte.ec.sign.SignInDelegate;
 import com.mymxhbyf.dongjk.latte.ec.sign.SignUpDelegate;
 import com.mymxhbyf.dongjk.lattecore.activities.ProxyActivity;
+import com.mymxhbyf.dongjk.lattecore.app.Latte;
 import com.mymxhbyf.dongjk.lattecore.delegates.LatteDelegate;
 import com.mymxhbyf.dongjk.lattecore.ui.launcher.ILauncherListener;
 import com.mymxhbyf.dongjk.lattecore.ui.launcher.OnLauncherFinishTag;
@@ -26,6 +27,7 @@ public class MainActivity extends ProxyActivity implements ISignListener,ILaunch
         if (actionBar != null){
             actionBar.hide();
         }
+        Latte.getConfigurator().withActivity(this);
     }
 
     @Override

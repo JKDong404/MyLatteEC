@@ -11,5 +11,8 @@ public enum ConfigType {
     CONFIG_REDAY,//初始化，配置是否完成
     ICON,//自己的配置
     LOADER_DELAYED,
-    INTERCEPTOR
+    INTERCEPTOR,
+    WE_CHAT_APP_ID,
+    WE_CHAT_APP_SECRET,
+    ACTIVITY
 }
