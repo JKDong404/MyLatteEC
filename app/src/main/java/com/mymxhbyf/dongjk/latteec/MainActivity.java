@@ -4,15 +4,19 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.mymxhbyf.dongjk.latte.ec.launcher.LauncherDelegate;
 import com.mymxhbyf.dongjk.latte.ec.launcher.LauncherScrollDelegate;
+import com.mymxhbyf.dongjk.latte.ec.sign.ISignListener;
 import com.mymxhbyf.dongjk.latte.ec.sign.SignInDelegate;
 import com.mymxhbyf.dongjk.latte.ec.sign.SignUpDelegate;
 import com.mymxhbyf.dongjk.lattecore.activities.ProxyActivity;
 import com.mymxhbyf.dongjk.lattecore.delegates.LatteDelegate;
+import com.mymxhbyf.dongjk.lattecore.ui.launcher.ILauncherListener;
+import com.mymxhbyf.dongjk.lattecore.ui.launcher.OnLauncherFinishTag;
 
-public class MainActivity extends ProxyActivity{
+public class MainActivity extends ProxyActivity implements ISignListener,ILauncherListener{
 
 
     @Override
@@ -26,6 +30,30 @@ public class MainActivity extends ProxyActivity{
 
     @Override
     public LatteDelegate setRootDelegate() {
-        return new SignInDelegate();
+        return new LauncherDelegate();
+    }
+
+    @Override
+    public void onSignInSuccess() {
+        Toast.makeText(this,"登录成功",Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onSignUpSuccess() {
+        Toast.makeText(this,"注册成功",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onLauncherFinish(OnLauncherFinishTag tag) {
+        switch (tag){
+            case SIGNED://启动结束，用户登录完成
+                startWithPop(new AppDelegate());
+                break;
+
+            case NOT_SIGNDE://启动结束，用户未登录
+                startWithPop(new SignInDelegate());
+                break;
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.mymxhbyf.dongjk.latte.ec.sign;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
@@ -38,20 +39,33 @@ public class SignUpDelegate extends LatteDelegate{
     @BindView(R2.id.et_sign_up_confirm_psw)
     TextInputEditText etConfirmPsw = null;
 
+    private ISignListener mISignListener = null;
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (activity instanceof ISignListener){
+            mISignListener = (ISignListener) activity;
+        }
+    }
+
     @OnClick(R2.id.btn_sign_up_register)
     void onClickSignUp(){
         if (checkForm()){
-//            RestClient.builder()
-//                    .url("sign_up")
-//                    .params("","")
-//                    .success(new ISuccess() {
-//                        @Override
-//                        public void onSuccess(String response) {
-//
-//                        }
-//                    })
-//                    .build()
-//                    .post();
+            RestClient.builder()
+                    .url("sign_up")
+                    .params("name",etName.getText().toString())
+                    .params("email",etEmail.getText().toString())
+                    .params("phone",etPhone.getText().toString())
+                    .params("password",etPsw.getText().toString())
+                    .success(new ISuccess() {
+                        @Override
+                        public void onSuccess(String response) {
+                            //json解析
+                            SignHandler.onSignUp(response, mISignListener);
+                        }
+                    })
+                    .build()
+                    .post();
             Toast.makeText(getContext(),"验证通过",Toast.LENGTH_SHORT).show();
 
         }

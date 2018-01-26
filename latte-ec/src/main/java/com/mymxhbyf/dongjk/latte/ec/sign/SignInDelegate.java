@@ -1,5 +1,6 @@
 package com.mymxhbyf.dongjk.latte.ec.sign;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 import com.mymxhbyf.dongjk.latte.ec.R;
 import com.mymxhbyf.dongjk.latte.ec.R2;
 import com.mymxhbyf.dongjk.lattecore.delegates.LatteDelegate;
+import com.mymxhbyf.dongjk.lattecore.net.RestClient;
+import com.mymxhbyf.dongjk.lattecore.net.callback.ISuccess;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -22,14 +25,37 @@ public class SignInDelegate extends LatteDelegate{
 
     @BindView(R2.id.et_sign_in_email)
     TextInputEditText etEmail = null;
-
     @BindView(R2.id.et_sign_in_psw)
     TextInputEditText etPsw = null;
 
+    private ISignListener mISignListener = null;
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (activity instanceof ISignListener){
+            mISignListener = (ISignListener) activity;
+        }
+    }
+
     @OnClick(R2.id.btn_sign_in)
     void onClickSingIn(){
-        checkForm();
+        if (checkForm()){
+            RestClient.builder()
+                    .url("sign_in")
+                    .params("email",etEmail.getText().toString())
+                    .params("password",etPsw.getText().toString())
+                    .success(new ISuccess() {
+                        @Override
+                        public void onSuccess(String response) {
+                            SignHandler.onSignIn(response,mISignListener);
+                        }
+                    })
+                    .build()
+                    .post();
+        }
+
     }
+
 
     @OnClick(R2.id.icon_sign_in_wechat)
     void onClickWeChat(){

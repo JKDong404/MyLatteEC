@@ -11,6 +11,7 @@ import com.mymxhbyf.dongjk.lattecore.net.callback.IFailure;
 import com.mymxhbyf.dongjk.lattecore.net.callback.ISuccess;
 import com.mymxhbyf.dongjk.lattecore.delegates.LatteDelegate;
 import com.mymxhbyf.dongjk.lattecore.net.RestClient;
+import com.mymxhbyf.dongjk.lattecore.util.log.LatteLogger;
 
 /**
  * Created by DongJK on 2018/1/18.
@@ -35,6 +36,7 @@ public class AppDelegate extends LatteDelegate{
                     @Override
                     public void onSuccess(String response) {
                         Toast.makeText(getContext(),response,Toast.LENGTH_SHORT).show();
+                        LatteLogger.json("gogogog",response);
                     }
                 })
                 .failure(new IFailure() {
