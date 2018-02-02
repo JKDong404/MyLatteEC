@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import com.mymxhbyf.dongjk.latte.ec.launcher.LauncherDelegate;
 import com.mymxhbyf.dongjk.latte.ec.launcher.LauncherScrollDelegate;
+import com.mymxhbyf.dongjk.latte.ec.main.EcBottomDelegate;
+import com.mymxhbyf.dongjk.latte.ec.main.sort.SortDelegate;
 import com.mymxhbyf.dongjk.latte.ec.sign.ISignListener;
 import com.mymxhbyf.dongjk.latte.ec.sign.SignInDelegate;
 import com.mymxhbyf.dongjk.latte.ec.sign.SignUpDelegate;
@@ -16,6 +18,8 @@ import com.mymxhbyf.dongjk.lattecore.app.Latte;
 import com.mymxhbyf.dongjk.lattecore.delegates.LatteDelegate;
 import com.mymxhbyf.dongjk.lattecore.ui.launcher.ILauncherListener;
 import com.mymxhbyf.dongjk.lattecore.ui.launcher.OnLauncherFinishTag;
+
+import qiu.niorgai.StatusBarCompat;
 
 public class MainActivity extends ProxyActivity implements ISignListener,ILauncherListener{
 
@@ -28,6 +32,8 @@ public class MainActivity extends ProxyActivity implements ISignListener,ILaunch
             actionBar.hide();
         }
         Latte.getConfigurator().withActivity(this);
+        //去掉titlebar
+        StatusBarCompat.translucentStatusBar(this,true);
     }
 
     @Override
@@ -50,7 +56,7 @@ public class MainActivity extends ProxyActivity implements ISignListener,ILaunch
     public void onLauncherFinish(OnLauncherFinishTag tag) {
         switch (tag){
             case SIGNED://启动结束，用户登录完成
-                startWithPop(new AppDelegate());
+                startWithPop(new EcBottomDelegate());
                 break;
 
             case NOT_SIGNDE://启动结束，用户未登录

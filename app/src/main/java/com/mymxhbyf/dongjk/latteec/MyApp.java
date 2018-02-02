@@ -23,6 +23,8 @@ public class MyApp extends Application{
                 .withLoaderDelayed(1000)
                 .withApiHost("http://127.0.0.1/")
                 .withInterceptor(new DebugInterceptor("index",R.raw.test))
+                .withInterceptor(new DebugInterceptor("sort",R.raw.sort))
+                .withInterceptor(new DebugInterceptor("content",R.raw.content))
                 .withWeChatAppId("")
                 .withWeChatAppSecret("")
                 .configure();

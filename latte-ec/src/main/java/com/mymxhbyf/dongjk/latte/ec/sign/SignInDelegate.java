@@ -42,18 +42,19 @@ public class SignInDelegate extends LatteDelegate{
     @OnClick(R2.id.btn_sign_in)
     void onClickSingIn(){
         if (checkForm()){
-            RestClient.builder()
-                    .url("sign_in")
-                    .params("email",etEmail.getText().toString())
-                    .params("password",etPsw.getText().toString())
-                    .success(new ISuccess() {
-                        @Override
-                        public void onSuccess(String response) {
-                            SignHandler.onSignIn(response,mISignListener);
-                        }
-                    })
-                    .build()
-                    .post();
+//            RestClient.builder()
+//                    .url("sign_in")
+//                    .params("email",etEmail.getText().toString())
+//                    .params("password",etPsw.getText().toString())
+//                    .success(new ISuccess() {
+//                        @Override
+//                        public void onSuccess(String response) {
+//                            SignHandler.onSignIn(response,mISignListener);
+//                        }
+//                    })
+//                    .build()
+//                    .post();
+            SignHandler.onSignIn("登陆",mISignListener);
         }
 
     }

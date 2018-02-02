@@ -2,9 +2,12 @@ package com.mymxhbyf.dongjk.lattecore.app;
 
 
 import android.app.Activity;
+import android.os.Handler;
 
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.WeakHashMap;
@@ -18,6 +21,7 @@ import okhttp3.Interceptor;
 public class Configurator {
 
     private static final WeakHashMap<Object,Object> LATTE_CONFIGS = new WeakHashMap<>();
+    private static final Handler HANDLER = new Handler();
     //字体图标相关
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
     //拦截器相关
@@ -26,6 +30,7 @@ public class Configurator {
 
     private Configurator(){
         LATTE_CONFIGS.put(ConfigType.CONFIG_REDAY,false);
+        LATTE_CONFIGS.put(ConfigType.HANDLER,HANDLER);
     }
 
     //线程安全的懒汉模式
@@ -44,6 +49,7 @@ public class Configurator {
 
     public final void configure(){//配置完成
         initIcons();
+        Logger.addLogAdapter(new AndroidLogAdapter());
         LATTE_CONFIGS.put(ConfigType.CONFIG_REDAY,true);
     }
 

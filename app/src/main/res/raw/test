@@ -1,3 +1,114 @@
 {
-  "key":"value"
+  "code" : 0,
+  "message" : "OK",
+  "total" : 3,
+  "page_size" : 18,
+  "data" :[
+    {
+      "goodsId": 0,
+      "spanSize": 4,
+      "text": "2222222"
+    },
+    {
+      "goodsId": 1,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize":4
+    },
+    {
+      "goodsId": 2,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },
+    {
+      "goodsId": 3,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },    {
+      "goodsId": 4,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },    {
+      "goodsId": 5,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },    {
+      "goodsId": 6,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },    {
+      "goodsId": 7,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },    {
+      "goodsId": 8,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },    {
+      "goodsId": 9,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },    {
+      "goodsId": 10,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },    {
+      "goodsId": 11,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },    {
+      "goodsId": 12,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },    {
+      "goodsId": 13,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },    {
+      "goodsId": 14,
+      "text": "假装上面是图片",
+      "imageUrl": "sssssssssssssssssssssssssssss",
+      "spanSize": 2
+    },    {
+      "goodsId": 15,
+      "text": "我只有文字",
+      "spanSize": 2
+    },    {
+      "goodsId": 16,
+      "text": "我只有文字1",
+      "spanSize": 2
+    },    {
+      "goodsId": 17,
+      "text": "我只有文字2",
+      "spanSize": 2
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ]
+
+
 }
