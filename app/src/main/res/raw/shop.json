@@ -1,0 +1,31 @@
+{
+  "code": 0,
+  "message": "OK",
+  "data": [
+    {
+      "title": "商品标题1",
+      "desc": "商品1的详细描述",
+      "id": 1,
+      "price": 10.00,
+      "count": 2,
+      "thumb": "sssssssssssssssssss"
+    },
+    {
+      "title": "商品标题2",
+      "desc": "商品2的详细描述",
+      "id": 2,
+      "price": 20.00,
+      "count": 3,
+      "thumb": "sssssssssssssssssss"
+    },
+    {
+      "title": "商品标题3",
+      "desc": "商品3的详细描述",
+      "id": 3,
+      "price": 30.00,
+      "count": 4,
+      "thumb": "sssssssssssssssssss"
+    }
+
+  ]
+}

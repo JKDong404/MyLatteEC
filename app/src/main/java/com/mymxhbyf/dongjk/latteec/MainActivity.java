@@ -56,11 +56,11 @@ public class MainActivity extends ProxyActivity implements ISignListener,ILaunch
     public void onLauncherFinish(OnLauncherFinishTag tag) {
         switch (tag){
             case SIGNED://启动结束，用户登录完成
-                startWithPop(new EcBottomDelegate());
+                getSupportDelegate().startWithPop(new EcBottomDelegate());
                 break;
 
             case NOT_SIGNDE://启动结束，用户未登录
-                startWithPop(new SignInDelegate());
+                getSupportDelegate().startWithPop(new SignInDelegate());
                 break;
         }
     }

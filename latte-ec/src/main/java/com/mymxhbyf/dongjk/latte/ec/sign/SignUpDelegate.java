@@ -74,7 +74,7 @@ public class SignUpDelegate extends LatteDelegate{
     @OnClick(R2.id.tv_link_sign_up)
     void onClickLink(){
         //已注册，点击跳转登陆界面
-        start(new SignInDelegate());
+        getSupportDelegate().start(new SignInDelegate());
     }
 
 
